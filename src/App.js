@@ -1,20 +1,20 @@
-// import logo from './logo.svg';
 import React from "react";
-import "./App.css";
 import Login from "./components/login";
-import "./components/login.css";
-import office from "./assets/office.png";
+import { BrowserRouter as Router, Route, Routes, Navigate } from "react-router-dom";
 import { useEffect, useState } from "react"; // hook = função js que faz algo especial na biblioteca
 //useState - area de memória para reutilizar / váriavel longa / permite que as info gerem alterações na tela
 // possui o estado "relogio" e a função que altera o estado "setRelogio"
+import Home from "./components/home"
+
 function App() {
-  return (
-    <div className="App">
-      <div className="background">
-        {/* <img src="{office}" alt="background" /> */}
-      </div>
-      <Login />
-    </div>
+  return ( //html será renderizado
+    <Router>
+      <Routes>
+        <Route path="/login" element={<Login/>}/>
+        <Route path="/home" element={<Home/>}/>
+        <Route path="/" element={<Navigate to="/login" />}/>
+      </Routes>
+    </Router>
   );
 }
 
