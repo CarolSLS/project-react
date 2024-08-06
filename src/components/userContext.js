@@ -1,10 +1,9 @@
 import React, {createContext, useState} from 'react';
-// import { useNavigate } from 'react-router-dom';
 
 const userContext = createContext();
 
 export const UserProvider = ({children })=>{ 
-    const [user, setUser] = useState({name: 'Foi Caraio', profilePicture: 'url_da_imagem', isLoggedIn: true});
+    const [user, setUser] = useState({name: '', profilePicture: '', isLoggedIn: false});
     // const navigate = useNavigate();
 
     const logout = () => {
@@ -13,7 +12,7 @@ export const UserProvider = ({children })=>{
     };
 
     return (
-        <userContext.Provider value={{user, logout}}>
+        <userContext.Provider value={{user, setUser, logout}}>
             {children}
         </userContext.Provider>
     );
