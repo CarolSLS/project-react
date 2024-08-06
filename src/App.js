@@ -10,6 +10,7 @@ import {
   Navigate,
 } from "react-router-dom";
 import { UserProvider } from "./components/userContext";
+import Profile from "./components/Profile/profile.jsx"
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/home" element={<Home />} />
           <Route path="/createAccount" element={<CreateAccount />} />
+          <Route path="/profile" element={<Profile />} />
           <Route path="/" element={<Navigate to="/login" />} />
         </Routes>
       </Router>

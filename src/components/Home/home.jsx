@@ -3,6 +3,7 @@ import React, { useContext, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import logoutIcon from "../../assets/logout.svg";
 import userContext from "../userContext";
+
 import { 
   Container, 
   Sidebar, 
@@ -28,6 +29,10 @@ import {
 const Home = () => {
   const { user, logout } = useContext(userContext);
   const navigate = useNavigate();
+
+  const handleProfileClick = () => {
+    navigate("/profile");
+  };
 
   const handleLogout = () => {
     logout();
@@ -57,8 +62,7 @@ const Home = () => {
       <Content>
         <Header>
           <WelcomeContainer>
-
-          <ProfilePicture src={user.profilePicture} alt="Foto do perfil" />
+          <ProfilePicture src={user.profilePicture} alt="Foto do perfil" onClick={handleProfileClick} />
           <WelcomeMessage>Bem vindo, {user.name}</WelcomeMessage>
           <LogoutIcon src={logoutIcon} alt="Logout" onClick={handleLogout} />
           </WelcomeContainer>

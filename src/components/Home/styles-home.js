@@ -58,6 +58,9 @@ export const ProfilePicture = styled.img`
   height: 70px;
   border-radius: 50%;
   background-color: white;
+  &:hover{
+    cursor: pointer;
+  }
 `;
 
 export const WelcomeContainer = styled.div`
