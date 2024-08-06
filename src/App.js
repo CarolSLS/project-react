@@ -3,6 +3,7 @@ import Login from "./components/Login/login";
 import Home from "./components/Home/home";
 // import CreateAccount from "./components/Criar-conta/create-account";
 import CreateAccount from "./components/Criar-conta/create-account.jsx"
+import CreateNotes from "./components/Criar-notas/create-notes.jsx";
 import {
   BrowserRouter as Router,
   Route,
@@ -20,6 +21,7 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/home" element={<Home />} />
           <Route path="/createAccount" element={<CreateAccount />} />
+          <Route path="/createNotes" element={<CreateNotes />} />
           <Route path="/profile" element={<Profile />} />
           <Route path="/" element={<Navigate to="/login" />} />
         </Routes>

@@ -1,9 +1,8 @@
-// import styled from "styled-components";
 import React, { useContext, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import logoutIcon from "../../assets/logout.svg";
 import userContext from "../userContext";
-
+import userImg from "../../assets/user-image.jpeg";
 import { 
   Container, 
   Sidebar, 
@@ -25,6 +24,7 @@ import {
   TagContainer, 
   Tag 
 } from "./styles-home";
+import { UserImage } from "../Profile/profile";
 
 const Home = () => {
   const { user, logout } = useContext(userContext);
@@ -57,12 +57,12 @@ const Home = () => {
             <MenuItem>React</MenuItem>
           </Menu>
         </div>
-        <FooterLink href="#">+ Criar nota</FooterLink>
+        <FooterLink onClick={() => navigate("/createNotes")}>+ Criar nota</FooterLink>
       </Sidebar>
       <Content>
         <Header>
           <WelcomeContainer>
-          <ProfilePicture src={user.profilePicture} alt="Foto do perfil" onClick={handleProfileClick} />
+          <ProfilePicture src={user.profilePicture || userImg} alt="Foto do perfil" onClick={handleProfileClick} />
           <WelcomeMessage>Bem vindo, {user.name}</WelcomeMessage>
           <LogoutIcon src={logoutIcon} alt="Logout" onClick={handleLogout} />
           </WelcomeContainer>

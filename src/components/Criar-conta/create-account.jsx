@@ -11,6 +11,7 @@ import {
 } from "./create-account.js";
 
 
+
 const CreateAccount = () => {
     const [name, setName] = useState("");
     const [email, setEmail] = useState("");
@@ -79,10 +80,6 @@ const CreateAccount = () => {
             </BackgroundContainer>
         </Container>
     );
-
-
-
-
 }
 
 export default CreateAccount;
