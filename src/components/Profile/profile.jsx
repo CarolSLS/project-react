@@ -61,5 +61,4 @@ const Profile = () => {
         </ProfileContainer>
     );
 };
-
 export default Profile;
