@@ -1,9 +1,10 @@
 import React, {createContext, useState} from 'react';
+import userImg from "../assets/user-image.jpeg"
 
 const userContext = createContext();
 
 export const UserProvider = ({children })=>{ 
-    const [user, setUser] = useState({name: '', profilePicture: '', isLoggedIn: false});
+    const [user, setUser] = useState({name: '', profilePicture: userImg, isLoggedIn: false});
     // const navigate = useNavigate();
 
     const logout = () => {

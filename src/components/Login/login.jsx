@@ -11,6 +11,7 @@ import {
   Container, SideBar, LoginContainer, Title, Subtitle, LoginTitle, Form,
   FormGroup, Icon, Input, Button, CreateAccount, BackgroundContainer
 } from "./styles-login"
+import userImg from "../../assets/user-image.jpeg";
 
 const Login = () => {
   //const "email" é o estado atual - setEmail é a função que
@@ -25,7 +26,7 @@ const Login = () => {
     // preventDefault adiciona a lógica para enviar os dados para o servidor
     event.preventDefault();
     if (authenticateUser(email, password)) {
-      setUser({ name: "Gata", profilePicture: "url_da_imagem", isLoggedIn: true });
+      setUser({ name: "Gata", profilePicture: userImg, isLoggedIn: true });
       navigate("/home");
     } else {
       alert("Credencias inválidas")

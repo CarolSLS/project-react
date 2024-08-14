@@ -29,7 +29,7 @@ import { UserImage } from "../Profile/profile";
 const Home = () => {
   const { user, logout } = useContext(userContext);
   const navigate = useNavigate();
-
+  console.log('foto: ', user.profilePicture);
   const handleProfileClick = () => {
     navigate("/profile");
   };
