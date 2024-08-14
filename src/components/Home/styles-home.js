@@ -93,8 +93,9 @@ export const SearchBar = styled.input`
   width: 91%;
   padding: 10px;
   margin: 20px 0;
-  border: 1px solid #ccc;
+  /* border: 1px solid #ccc; */
   border-radius: 4px;
+  background-color: #232129;
 `;
 export const NotesSection = styled.div`
   margin-top: 20px;
