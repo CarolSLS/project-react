@@ -26,7 +26,7 @@ const Login = () => {
     // preventDefault adiciona a lógica para enviar os dados para o servidor
     event.preventDefault();
     if (authenticateUser(email, password)) {
-      setUser({ name: "Gata", profilePicture: userImg, isLoggedIn: true });
+      setUser({ name: 'Usuário', profilePicture: userImg, isLoggedIn: true });
       navigate("/home");
     } else {
       alert("Credencias inválidas")

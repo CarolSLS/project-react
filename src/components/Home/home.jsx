@@ -3,28 +3,29 @@ import { useNavigate } from "react-router-dom";
 import logoutIcon from "../../assets/logout.svg";
 import userContext from "../userContext";
 import userImg from "../../assets/user-image.jpeg";
-import { 
-  Container, 
-  Sidebar, 
-  SidebarHeader, 
-  Menu, 
-  MenuItem, 
-  FooterLink, 
-  Content, 
-  Header, 
-  WelcomeContainer, 
-  WelcomeMessage, 
-  LogoutIcon, 
-  ProfilePicture, 
-  SearchBar, 
-  NotesSection, 
-  TitleUp, 
-  Note, 
-  NoteTitle, 
-  TagContainer, 
-  Tag 
+import {
+  Container,
+  Sidebar,
+  SidebarHeader,
+  Menu,
+  MenuItem,
+  FooterLink,
+  Content,
+  Header,
+  WelcomeContainer,
+  WelcomeMessage,
+  WelcomeUser,
+  LogoutIcon,
+  ProfilePicture,
+  SearchBar,
+  NotesSection,
+  TitleUp,
+  Note,
+  NoteTitle,
+  TagContainer,
+  Tag
 } from "./styles-home";
-import { UserImage } from "../Profile/profile";
+
 
 const Home = () => {
   const { user, logout } = useContext(userContext);
@@ -39,9 +40,9 @@ const Home = () => {
     console.log("Logout");
   };
 
-  useEffect(()=> {
-    if(!user.isLoggedIn){
-        navigate("/login")
+  useEffect(() => {
+    if (!user.isLoggedIn) {
+      navigate("/login")
     }
   }, [user.isLoggedIn, navigate]);
 
@@ -62,10 +63,12 @@ const Home = () => {
       <Content>
         <Header>
           <WelcomeContainer>
-          <ProfilePicture src={user.profilePicture || userImg} alt="Foto do perfil" onClick={handleProfileClick} />
-          <WelcomeMessage>Bem vindo, {user.name}</WelcomeMessage>
-          <LogoutIcon src={logoutIcon} alt="Logout" onClick={handleLogout} />
+            <ProfilePicture src={user.profilePicture || userImg} alt="Foto do perfil" onClick={handleProfileClick} />
+            <WelcomeMessage>Bem vindo,
+              <WelcomeUser> {user.name}</WelcomeUser>
+            </WelcomeMessage>
           </WelcomeContainer>
+          <LogoutIcon src={logoutIcon} alt="Logout" onClick={handleLogout} />
         </Header>
         <SearchBar type="text" placeholder="Pesquisar pelo título" />
         <NotesSection>

@@ -49,13 +49,14 @@ export const Content = styled.div`
   background-color: #312e38;
 `;
 export const Header = styled.div`
+  width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
 `;
 export const ProfilePicture = styled.img`
-  width: 70px;
-  height: 70px;
+  width: 80px;
+  height: 80px;
   border-radius: 50%;
   background-color: white;
   &:hover{
@@ -65,17 +66,28 @@ export const ProfilePicture = styled.img`
 
 export const WelcomeContainer = styled.div`
   display: flex;
+  flex-direction: row;
+  justify-content: space-between;
   align-items: center;
 `;
 
-export const WelcomeMessage = styled.h2`
-  margin-left: 50px;
-  color: #ff9000;
+export const WelcomeMessage = styled.p`
+  margin-left: 10px;
+  color: #999591;
+  font-size: 14px;
+
+`;
+
+export const WelcomeUser = styled.h2`
+  font-size: 18px;
+  color: #F4EDE8;
+
 `;
 export const LogoutIcon = styled.img`
   width: 30px;
   height: 30px;
   cursor: pointer;
+  margin-right: 60px;
 `;
 export const SearchBar = styled.input`
   width: 91%;
