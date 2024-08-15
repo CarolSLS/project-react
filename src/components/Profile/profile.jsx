@@ -24,18 +24,24 @@ const Profile = () => {
         navigate("/home");
     };
 
+
     const handleSave = (event) => {
         event.preventDefault();
-        setUser({ user, name, email });
+        setUser((prevUser) => ({
+            ...prevUser,
+            name: name,
+            email: email
+        }));
         alert("Informações do usuário atualizadas!");
-    };
+    }
+
 
 
     return (
         <ProfileContainer>
             <Header>
-                <BackButton onclick={handleBackClick}>
-                    <img src={arrowLeftIcon} alt="" />
+                <BackButton onClick={handleBackClick}>
+                    <img src={arrowLeftIcon} alt="Voltar" />
                 </BackButton>
             </Header>
             <UserInfoContainer>
@@ -47,20 +53,38 @@ const Profile = () => {
                 </UserImageContainer>
                 <Form onSubmit={handleSave}>
                     <FormGroup>
-                    <Icon src={IconUser} alt="User-Icon" />
-                        <Input type="text" value={name} onChange={(event) => setName(event.target.value)} required placeholder="Usuário" />
+                        <Icon src={IconUser} alt="User-Icon" />
+                        <Input type="text"
+                            value={name}
+                            onChange={(event) =>
+                                setName(event.target.value)}
+                            required
+                            placeholder="Usuário" />
                     </FormGroup>
                     <FormGroup>
-                    <Icon src={IconEmail} alt="Email-Icon" />
-                        <Input type="email" value={email} onChange={(event) => setEmail(event.target.value)} placeholder="E-mail" />
+                        <Icon src={IconEmail} alt="Email-Icon" />
+                        <Input type="email"
+                            value={email}
+                            onChange={(event) =>
+                                setEmail(event.target.value)}
+                            required
+                            placeholder="E-mail" />
                     </FormGroup>
                     <FormGroup>
-                        <Icon src={IconLock} alt="Lock-Icon"/>
-                        <Input type="password" value={currentPassword} onChange={(event) => setCurrentPassword(event.target.value)} placeholder="Senha atual" />
+                        <Icon src={IconLock} alt="Lock-Icon" />
+                        <Input type="password"
+                            value={currentPassword}
+                            onChange={(event) =>
+                                setCurrentPassword(event.target.value)}
+                            placeholder="Senha atual" />
                     </FormGroup>
                     <FormGroup>
-                        <Icon src={IconLock} alt="Lock-Icon"/>
-                        <Input type="password" value={newPassword} onChange={(event) => setNewPassword(event.target.value)} placeholder="Nova senha" />
+                        <Icon src={IconLock} alt="Lock-Icon" />
+                        <Input type="password"
+                            value={newPassword}
+                            onChange={(event) =>
+                                setNewPassword(event.target.value)}
+                            placeholder="Nova senha" />
                     </FormGroup>
                     <SaveButton type="submit">Salvar</SaveButton>
                 </Form>

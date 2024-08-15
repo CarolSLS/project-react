@@ -68,8 +68,7 @@ export const Form = styled.form`
   width: 100%;
   display: flex;
   flex-direction: column;
-  align-items: center;
-
+  /* align-items: center; */
 `;
 
 export const FormGroup = styled.div`
