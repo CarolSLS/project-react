@@ -1,24 +1,26 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-  background-color: #312E38;
-  color: #F4EDE8;
+  width: 100%;
+  background-color: #312e38;
+  color: #f4ede8;
   min-height: 100vh;
-  padding: 20px;
+  /* display: flex;
+  flex-direction: column;
+  justify-content: center; */
 `;
 
 export const Header = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #232129;
-  padding: 10px 20px;
-  border-radius: 8px;
+  padding: 20px;
+  border-bottom: 1px solid #3e3b47;
 `;
 
 export const ProfilePicture = styled.img`
-  width: 40px;
-  height: 40px;
+  width: 50px;
+  height: 50px;
   border-radius: 50%;
 `;
 
@@ -34,15 +36,21 @@ export const LogoutIcon = styled.img`
 `;
 
 export const Content = styled.div`
+  width: calc(100% - 497px - 393px);
+  display: flex;
+  flex-direction: column;
+  /* align-items: center; */
+  padding: 20px;
+  /* gap: 20px; */
   margin-top: 20px;
 `;
 
 export const Title = styled.h1`
-  color: #FF9000;
+  color: #ff9000;
 `;
 
 export const BackLink = styled.div`
-  color: #FF9000;
+  color: #ff9000;
   cursor: pointer;
 `;
 
@@ -76,6 +84,7 @@ export const LinksSection = styled.div`
 `;
 
 export const LinkInputContainer = styled.div`
+  position: relative;
   display: flex;
   align-items: center;
   margin-bottom: 5px;
@@ -83,15 +92,20 @@ export const LinkInputContainer = styled.div`
 
 export const LinkInput = styled.input`
   flex: 1;
-  padding: 8px;
+  padding: 8px 35px 8px 8px;
   border: 1px solid #ccc;
   border-radius: 4px;
   box-sizing: border-box;
   margin-right: 5px;
+  position: relative;
 `;
 
 export const RemoveLinkIcon = styled.span`
-  color: #FF9000;
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: red;
   cursor: pointer;
 `;
 
@@ -107,7 +121,7 @@ export const AddLinkInput = styled.div`
 
 export const AddLinkIcon = styled.span`
   margin-left: auto;
-  color: #FF9000;
+  color: #ff9000;
 `;
 
 export const TagsSection = styled.div`
@@ -116,10 +130,9 @@ export const TagsSection = styled.div`
 
 export const SaveButton = styled.button`
   padding: 10px 20px;
-  background-color: #FF9000;
+  background-color: #ff9000;
   color: white;
   border: none;
   border-radius: 4px;
   cursor: pointer;
 `;
-

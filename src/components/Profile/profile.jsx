@@ -1,10 +1,11 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import {
     ProfileContainer, Header, BackButton, UserInfoContainer, UserImageContainer, UserImage,
     CameraIcon, IconeCamera, Form, FormGroup, Icon, Input, SaveButton
 } from "./profile";
 import userContext from "../userContext";
+import { updateUser } from "../../services/authService";
 import cameraIcon from "../../assets/icon-camera.svg";
 import arrowLeftIcon from "../../assets/icon-arrow-left.svg";
 import userImg from "../../assets/user-image.jpeg";
@@ -20,6 +21,11 @@ const Profile = () => {
     const [currentPassword, setCurrentPassword] = useState("");
     const [newPassword, setNewPassword] = useState("");
 
+    useEffect(()=>{
+        setName(user.name);
+        setEmail(user.email)
+    }, [user]);
+
     const handleBackClick = () => {
         navigate("/home");
     };
@@ -27,12 +33,17 @@ const Profile = () => {
 
     const handleSave = (event) => {
         event.preventDefault();
-        setUser((prevUser) => ({
-            ...prevUser,
+        const updatedUser = {
+            ...user,
             name: name,
-            email: email
-        }));
-        alert("Informações do usuário atualizadas!");
+            email: email,
+            password: newPassword || user.password 
+        };
+        setUser(updatedUser);
+
+        updateUser(updatedUser);
+        console.log("Informações do usuário atualizadas!");
+        navigate("/home");
     }
 
 

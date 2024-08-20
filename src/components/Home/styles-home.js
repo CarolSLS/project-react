@@ -71,14 +71,14 @@ export const WelcomeContainer = styled.div`
   align-items: center;
 `;
 
-export const WelcomeMessage = styled.p`
+export const WelcomeMessage = styled.h2`
   margin-left: 10px;
   color: #999591;
   font-size: 14px;
 
 `;
 
-export const WelcomeUser = styled.h2`
+export const WelcomeUser = styled.p`
   font-size: 18px;
   color: #F4EDE8;
 

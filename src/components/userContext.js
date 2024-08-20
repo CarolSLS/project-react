@@ -1,6 +1,6 @@
 import React, { createContext, useState, useEffect } from "react";
-// import { useNavigate } from "react-router-dom";
 import userImg from "../assets/user-image.jpeg";
+// import { useNavigate } from "react-router-dom";
 
 const userContext = createContext();
 
@@ -11,8 +11,10 @@ export const UserProvider = ({ children }) => {
     return savedUser
       ? JSON.parse(savedUser)
       : {
-          name: '',
+          name: " ",
+          email: " ",
           profilePicture: userImg,
+          password: " ",
           isLoggedIn: false,
         };
   });
@@ -22,10 +24,27 @@ export const UserProvider = ({ children }) => {
   }, [user]);
 
   const logout = () => {
-    setUser({ name: '', profilePicture: '', isLoggedIn: false });
+    setUser({
+      name: " ",
+      email: " ",
+      profilePicture: userImg,
+      password: " ",
+      isLoggedIn: false,
+    });
     localStorage.removeItem("user");
-    // navigate("/login");
-  };
+  }
+  
+  // useEffect(() => {
+  //   if (user.isLoggedIn){
+  //     localStorage.setItem("user", JSON.stringify(user));
+  //   }
+  // }, [user]);
+
+  // const logout = () => {
+  //   setUser({ name: '', email: '', profilePicture: '', isLoggedIn: false });
+  //   localStorage.removeItem("user");
+  //   // navigate("/login");
+  // };
 
   return (
     <userContext.Provider value={{ user, setUser, logout }}>
